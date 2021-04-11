@@ -47,3 +47,15 @@ def solution4(nums, target):
         if target - num in nums_map:
             return [nums_map[target - num], i]
         nums_map[num] = i
+
+# 투 포인터 이용(정렬된 경우만 가능!)
+    
+    def solution5(nums, target):
+        left, right = 0, len(nums) -1
+        while not left == right:
+            if nums[left] + nums[right] < target:
+                left += 1
+            elif nums[left] + nums[right] > target:
+                right -= 1
+            else:
+                return left, right
