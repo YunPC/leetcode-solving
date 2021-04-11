@@ -37,3 +37,13 @@ def solution3(nums, target):
     for i, num in enumerate(nums):
         if target - num in nums_map and i != nums_map[target - num]:
             return nums.index(num), nums_map[target - num]
+
+# 조회 구조 개선
+
+def solution4(nums, target):
+    nums_map = {}
+
+    for i, num in enumerate(nums):
+        if target - num in nums_map:
+            return [nums_map[target - num], i]
+        nums_map[num] = i
