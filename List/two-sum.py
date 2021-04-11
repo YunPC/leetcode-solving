@@ -26,3 +26,14 @@ def solution2(nums, target):
 
     return answer
 
+# 첫 번째 수를 뺀 결과 키 조회
+
+def solution3(nums, target):
+    nums_map = {}
+
+    for i, num in enumerate(nums):
+        nums_map[num] = i
+
+    for i, num in enumerate(nums):
+        if target - num in nums_map and i != nums_map[target - num]:
+            return nums.index(num), nums_map[target - num]
